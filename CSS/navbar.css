@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+    background-image: url(../IMG/fundoHome.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.navbar {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.elements {
+    display: flex;
+}
+
+.navbar img {
+    height: 150px;
+}
+
+.navbar li {
+    list-style-type: none;
+    margin-right: 15px;
+    display: flex;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 30px;
+    font-size: 30px;
+
+}
+
+.navbar ul{
+    display: flex;
+    margin-right: 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s; 
+}
+
+.navbar li a:hover {
+    color: #00fff2; 
+}
+
+.logo:hover{
+cursor: pointer;
+}
