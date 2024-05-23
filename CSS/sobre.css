@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+span{
+    color: #00fff2;
+}

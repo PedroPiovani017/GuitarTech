@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/navbar.css">
     <link rel="shortcut icon" href="../IMG/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/login.css">
     <title>GuitarTech</title>
 </head>
+
 <body>
     <div class="navbar">
         <img class="logo" onclick="home()" src="../IMG/logo.png" alt="Logo">
@@ -19,5 +22,21 @@
             </ul>
         </nav>
     </div>
+    <center>
+    <div class="form">
+        <p class="title">LOGIN</p>        
+        <label>
+            <input class="input" type="email" placeholder="" required="">
+            <span>E-mail</span>
+        </label> 
+            
+        <label>
+            <input class="input" type="password" placeholder="" required="">
+            <span>Senha</span>
+        </label>
+        <button class="submit">Logar</button>
+        <p class="signin">Não possui uma conta? <a href="../HTML/cadastro.html">Cadastre-se</a> </p>
+    </div>
+    </center>
 </body>
 </html>
