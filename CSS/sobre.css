@@ -22,6 +22,7 @@ span{
     flex-direction: row-reverse;
     color: white;
     margin: auto;
+    margin-top: 120px;
     justify-content: space-around;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }

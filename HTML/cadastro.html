@@ -17,7 +17,6 @@
             <ul>
                 <li><a href="home.html">HOME</a></li>
                 <li><a href="sobre.html">SOBRE</a></li>
-                <li><a href="quiz.html">QUIZ</a></li>
                 <li><a href="login.html">LOGIN</a></li>
             </ul>
         </nav>
@@ -26,26 +25,48 @@
     <div class="form">
         <p class="title">CADASTRO</p>
         <label>
-            <input class="input" type="text" placeholder="" required="">
+            <input class="input" type="text" placeholder="" required="" id="input_usuario">
             <span>Úsuario</span>
         </label>
                 
         <label>
-            <input class="input" type="email" placeholder="" required="">
+            <input class="input" type="email" placeholder="" required="" id="input_email">
             <span>E-mail</span>
         </label> 
             
         <label>
-            <input class="input" type="password" placeholder="" required="">
+            <input class="input" type="password" placeholder="" required="" id="input_senha">
             <span>Senha</span>
         </label>
         <label>
-            <input class="input" type="password" placeholder="" required="">
+            <input class="input" type="password" placeholder="" required="" id="input_confirmar_senha">
             <span>Confirmar Senha</span>
         </label>
-        <button class="submit">Cadastrar</button>
+        <button class="submit" onclick="cadastrar()">Cadastrar</button>
         <p class="signin">Já tem uma conta? <a href="../HTML/login.html">Login</a> </p>
     </div>
+    <div class="container" id="div_resultado"></div>
     </center>
 </body>
 </html>
+
+<script>
+    function cadastrar(){
+        let user = input_usuario.value;
+        let email = input_email.value;
+        let senha = input_senha.value;
+        let confirmarSenha = input_confirmar_senha.value;
+
+        if(user == "" || 
+           email == "" ||
+           senha == "" ||
+           confirmarSenha == ""){
+
+            div_resultado.innerHTML = `Preencha todos os campos`
+
+        } else if(email.indexOf('@') == - 1 || email.indexOf('.com') == - 1){
+            div_resultado.innerHTML = `O email precisa conter "@" e ".com"`
+
+        } 
+    }
+</script>
