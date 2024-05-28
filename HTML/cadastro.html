@@ -45,7 +45,7 @@
         <button class="submit" onclick="cadastrar()">Cadastrar</button>
         <p class="signin">Já tem uma conta? <a href="../HTML/login.html">Login</a> </p>
     </div>
-    <div class="container" id="div_resultado"></div>
+    <div class="exibir" id="div_resultado"></div> 
     </center>
 </body>
 </html>
@@ -57,6 +57,20 @@
         let senha = input_senha.value;
         let confirmarSenha = input_confirmar_senha.value;
 
+        const arroba = email.indexOf('@');
+        const ponto = email.indexOf('.');
+
+        const numero1 = senha.indexOf('1');
+        const numero2 = senha.indexOf('2');
+        const numero3 = senha.indexOf('3');
+        const numero4 = senha.indexOf('4');
+        const numero5 = senha.indexOf('5');
+        const numero6 = senha.indexOf('6');
+        const numero7 = senha.indexOf('7');
+        const numero8 = senha.indexOf('8');
+        const numero9 = senha.indexOf('9');
+        const numero0 = senha.indexOf('0');
+
         if(user == "" || 
            email == "" ||
            senha == "" ||
@@ -64,9 +78,19 @@
 
             div_resultado.innerHTML = `Preencha todos os campos`
 
-        } else if(email.indexOf('@') == - 1 || email.indexOf('.com') == - 1){
-            div_resultado.innerHTML = `O email precisa conter "@" e ".com"`
+        } else if(arroba < 0 || ponto < 0){
+            div_resultado.innerHTML = `O email precisa conter "@" e "."`
 
-        } 
+        } else if((senha.lenght < 6) || (numero1 < 0 && numero2 < 0 
+        && numero3 < 0 && numero4 < 0 && numero5 < 0 && numero6 < 0 
+        && numero7 < 0 && numero8 < 0 && numero9 < 0 && numero0 < 0)){
+            div_resultado.innerHTML = `Senha precisa conter pelo menos 6 caracteres <br> e pelo menos 1 número`
+
+        } else if(confirmarSenha != senha){
+            div_resultado.innerHTML = `As senhas devem ser iguais`
+
+        } else {
+            div_resultado.innerHTML = `Usuário cadastrado com sucesso!!`
+        }
     }
 </script>
