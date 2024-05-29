@@ -6,8 +6,6 @@ const content = document.querySelector(".content");
 const contentFinish = document.querySelector(".finish");
 const btnRestart = document.querySelector(".finish button");
 
-import questions from "./questions.js";
-
 let currentIndex = 0;
 let questionsCorrect = 0;
 
@@ -34,6 +32,8 @@ function nextQuestion(e){
 }
 
 function finish(){
+    const button = document.querySelector('#reiniciar') 
+    button.style.display = "block"
     textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;
     content.style.display = "none";
     contentFinish.style.display = "flex";
@@ -41,7 +41,7 @@ function finish(){
 
 function loadQuestion(){
     spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`;
-    const item = question[currentIndex];
+    const item = questions[currentIndex];
     answers.innerHTML = "";
     question.innerHTML = item.question;
 
@@ -51,7 +51,7 @@ function loadQuestion(){
         div.innerHTML = `<button class="answer" data-correct="${answer.correct}">
         ${answer.option}</button>`;
 
-        answer.appendChild(div);
+        answers.appendChild(div);
     });
 
     document.querySelectorAll(".answer").forEach((item) => {
