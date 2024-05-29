@@ -67,7 +67,7 @@
   .form label .input + span {
     color: rgba(255, 255, 255, 0.5);
     position: absolute;
-    left: 10px;
+    left: 20px;
     top: 0px;
     font-size: 0.9em;
     cursor: text;
@@ -89,6 +89,7 @@
   
   .input {
     font-size: medium;
+    max-width: 20vw;
   }
   
   .submit {
@@ -103,7 +104,8 @@
   }
   
   .submit:hover {
-    background-color: #00fff2;
+    background-color: #00fff2bb;
+    cursor: pointer;
   }
   
   @keyframes pulse {
@@ -116,4 +118,5 @@
       transform: scale(1.8);
       opacity: 0;
     }
+  
 }

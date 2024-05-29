@@ -103,7 +103,8 @@
   }
   
   .submit:hover {
-    background-color: #00fff2;
+    background-color: #00fff2bb;
+    cursor: pointer;
   }
   
   @keyframes pulse {

@@ -5,13 +5,15 @@
     margin: auto;
     justify-content: space-around;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 5vh;
+    font-size: 18px;
 }
 
 span{
     color: #00fff2;
 }
 
-#fotoCentral{
+#fotoMaiores{
     height: 450px;
     width: 450px;
     border-radius: 100px;
@@ -25,10 +27,13 @@ span{
     margin-top: 120px;
     justify-content: space-around;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+
 }
 
-#fotoODS{
+#fotoMenores{
     height: 450px;
     width: 450px;
     border-radius: 100px;
 }
+
