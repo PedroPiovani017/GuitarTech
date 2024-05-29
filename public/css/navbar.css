@@ -1,7 +1,7 @@
 body{
     margin: 0;
     overflow-x: hidden;
-    background-image: url(../IMG/fundoHome.png);
+    background-image: url(../assets/fundoHome.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
