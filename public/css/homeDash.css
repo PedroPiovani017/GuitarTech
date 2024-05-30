@@ -5,8 +5,8 @@ body {
     background-color: #000000;
     background-size: cover;
     overflow: hidden;
-  }
-  .container{
+}
+.container{
     display: flex;
     background-color: #000000ad;
     color: #fff;
@@ -21,8 +21,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-  .container1{
+}
+.container1{
     display: flex;
     background-color: #000000ad;
     color: #fff;
@@ -30,32 +30,48 @@ body {
     height: 200px;
     border: 6px solid #00fff2;
     border-radius: 30px;
-    margin-left: 400px;
+    margin-left: 100px;
     margin-top: 240px;
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
-  .container2{
+}
+.container2{
     display: flex;
     background-color: #000000ad;
     color: #fff;
-    width:600px;
+    width: 600px;
     height: 200px;
     border: 6px solid #00fff2;
     border-radius: 30px;
-    margin-left: 1000px;
+    margin-left: 658px;
     margin-top: -213px;
     font-size: 20px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
+}
+.container3{
+    display: flex;
+    background-color: #000000ad;
+    color: #fff;
+    width: 500px;
+    height: 200px;
+    border: 6px solid #00fff2;
+    border-radius: 30px;
+    margin-left: 1300px;
+    margin-top: -213px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
-  .button{
+.button{
     background-color: #00fff2;
     color: aliceblue;
     font-size: 16px;
@@ -66,8 +82,9 @@ body {
     padding: 0 32px;
     transition: filter 0.2s;
     cursor: pointer;
-  }
+}
   
-  .button:hover{
-    filter: brightness(1.5)
-  }
+.button:hover{
+    filter: brightness(1.5);
+    background-color: #00fff2bb;
+}
