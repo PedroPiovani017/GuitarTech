@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/cadastro.css">
+    <script src="./js/sessao.js"></script>
     <title>GuitarTech</title>
 </head>
 
@@ -15,7 +16,7 @@
         <img class="logo" onclick="home()" src="./assets/logo.png" alt="Logo">
         <nav class="elements">
             <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="sobre.html">SOBRE</a></li>
                 <li><a href="login.html">LOGIN</a></li>
             </ul>
@@ -45,52 +46,100 @@
         <button class="submit" onclick="cadastrar()">Cadastrar</button>
         <p class="signin">Já tem uma conta? <a href="login.html">Login</a> </p>
     </div>
-    <div class="exibir" id="div_resultado"></div> 
+    <div class="exibir" id="exibir"></div> 
     </center>
 </body>
 </html>
 
 <script>
-    function cadastrar(){
-        let user = input_usuario.value;
-        let email = input_email.value;
-        let senha = input_senha.value;
-        let confirmarSenha = input_confirmar_senha.value;
+    function cadastrar() {
 
-        const arroba = email.indexOf('@');
-        const ponto = email.indexOf('.');
+    exibir.innerHTML='';
 
-        const numero1 = senha.indexOf('1');
-        const numero2 = senha.indexOf('2');
-        const numero3 = senha.indexOf('3');
-        const numero4 = senha.indexOf('4');
-        const numero5 = senha.indexOf('5');
-        const numero6 = senha.indexOf('6');
-        const numero7 = senha.indexOf('7');
-        const numero8 = senha.indexOf('8');
-        const numero9 = senha.indexOf('9');
-        const numero0 = senha.indexOf('0');
+//Recupere o valor da nova input pelo nome do id
+// Agora vá para o método fetch logo abaixo
+var nomeVar = input_usuario.value;
+var emailVar = input_email.value;
+var senhaVar = input_senha.value;
+var confirmacaoSenhaVar = input_confirmar_senha.value;
+const arroba = emailVar.indexOf('@')
+const ponto = emailVar.indexOf('.com')
+const exclamacao = senhaVar.indexOf('!')
+const arrobs = senhaVar.indexOf('@')
+const velha = senhaVar.indexOf('#')
+const cifrao = senhaVar.indexOf('$')
+const ast = senhaVar.indexOf('*')
+const comercial = senhaVar.indexOf('&')
+const porcento = senhaVar.indexOf('%')
 
-        if(user == "" || 
-           email == "" ||
-           senha == "" ||
-           confirmarSenha == ""){
+if (
+    nomeVar == "" ||
+    emailVar == "" ||
+    senhaVar == "" ||
+    confirmacaoSenhaVar == ""
+) {
 
-            div_resultado.innerHTML = `Preencha todos os campos`
+    exibir.innerHTML = `Preencha todos os campos!`;
 
-        } else if(arroba < 0 || ponto < 0){
-            div_resultado.innerHTML = `O email precisa conter "@" e "."`
+    
+    return false;
+} else if (nomeVar.length <= 1) {
+    exibir.innerHTML = `Seu nome precisa conter<br>
+                mais de 1 caracter!`
+                return false;
+} else if (arroba < 0 && ponto < 0) {
+    exibir.innerHTML = `Seu email precisa conter:<br>
+                um "@" e um ".com"`
+                return false;
+} else if (arroba < 0 && ponto >= 0) {
+    exibir.innerHTML = `Seu email precisa conter
+                um "@"`
+                return false;
+} else if (ponto < 0 && arroba >= 0) {
+    exibir.innerHTML = `Seu email precisa conter
+                um ".com"`
+                return false;
+} else if (senhaVar.length < 10 || (exclamacao < 0 && arrobs < 0 && velha < 0 && cifrao < 0 && ast < 0 && comercial < 0 && porcento < 0)) {
+    exibir.innerHTML = `Sua senha deve conter<br>
+                no mínimo 10 caracteres<br>
+                pelo menos 1 caracter especial`
+                return false
+            
+} else if (senhaVar != confirmacaoSenhaVar || confirmacaoSenhaVar != senhaVar) {
+    exibir.innerHTML = `Suas senhas precisam estar iguais!`
+   return false
 
-        } else if((senha.lenght < 6) || (numero1 < 0 && numero2 < 0 
-        && numero3 < 0 && numero4 < 0 && numero5 < 0 && numero6 < 0 
-        && numero7 < 0 && numero8 < 0 && numero9 < 0 && numero0 < 0)){
-            div_resultado.innerHTML = `Senha precisa conter pelo menos 6 caracteres <br> e pelo menos 1 número`
+} else {
+    setInterval(1000);
+}
 
-        } else if(confirmarSenha != senha){
-            div_resultado.innerHTML = `As senhas devem ser iguais`
+// Enviando o valor da nova input
+fetch("/usuarios/cadastrar", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+    }),
+})
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
+        if (resposta.ok) {
+            alert("Login realizado!")
         } else {
-            div_resultado.innerHTML = `Usuário cadastrado com sucesso!!`
+            throw "Houve um erro ao tentar realizar o cadastro!";
         }
-    }
+    })
+    .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+
+return false;
+}
 </script>
