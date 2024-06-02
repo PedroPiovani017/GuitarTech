@@ -22,21 +22,64 @@
             </ul>
         </nav>
     </div>
+
     <center>
-    <div class="form">
-        <p class="title">LOGIN</p>        
-        <label>
-            <input class="input" type="email" placeholder="" required="">
-            <span>E-mail</span>
-        </label> 
-            
-        <label>
-            <input class="input" type="password" placeholder="" required="">
-            <span>Senha</span>
-        </label>
-        <a href="homeDash.html"><button class="submit" onclick="logar()">Logar</button></a>
-        <p class="signin">Não possui uma conta? <a href="cadastro.html">Cadastre-se</a> </p>
-    </div>
+        <div class="form">
+            <p class="title">LOGIN</p>
+            <label>
+                <input class="input" type="email" placeholder="" required="" id="input_email">
+                <span>E-mail</span>
+            </label>
+
+            <label>
+                <input class="input" type="password" placeholder="" required="" id="input_senha">
+                <span>Senha</span>
+            </label>
+            <button class="submit" onclick="logar()">Logar</button>
+            <p class="signin">Não possui uma conta? <a href="cadastro.html">Cadastre-se</a> </p>
+        </div>
     </center>
+
+    <div class="exibir" id="exibir"></div>
 </body>
+
 </html>
+
+<script>
+    function logar() {
+        let email = input_email.value;
+        let senha = input_senha.value;
+
+        if (email == "" ||
+            senha == ""
+        ) {
+            exibir.innerHTML = `Preencha todos os campos`
+        } else {
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    email: input_email.value,
+                    senha: input_senha.value,
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+                        exibir.innerHTML = "Login realizado!"
+                        window.location= "homeDash.html"
+                    } else {
+                        throw "Houve um erro ao tentar realizar o login!";
+                    }
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+        }
+    }
+</script>

@@ -34,7 +34,6 @@ function nextQuestion(e){
 function finish(){
     const button = document.querySelector('#reiniciar') 
     button.style.display = "block"
-    textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;
     content.style.display = "none";
     contentFinish.style.display = "flex";
 }

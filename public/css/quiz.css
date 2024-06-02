@@ -70,5 +70,7 @@ button{
 }
 
 .verGrafico{
-    margin-left: 900px;
+    position: absolute;
+    bottom: 250px;
+    right: 250px;
 }

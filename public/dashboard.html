@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>GuitarTech</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="./assets/logo.png" alt="Logo">
+        <nav class="elements">
+            <ul>
+                <li><a href="homeDash.html">Voltar</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="grafico">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+    
+    <div class="exibir">
+        <h2> <b> O usuário Pedro: </b> </h2>
+        <p>Acertou: 3 questões <br>
+           Errou: 7 questões </p>
+    </div>
+</body>
+</html>
+
+<script>
+    // Dados para o gráfico
+    var data = {
+        labels: ['Erradas', 'Certas'],
+        datasets: [{
+            data: [7, 3], // Quantidades para cada categoria
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.5)', // Cor para respostas erradas
+                'rgba(54, 162, 235, 0.5)', // Cor para respostas certas
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Configurações do gráfico
+    var options = {
+        responsive: true,
+        maintainAspectRatio: false
+    };
+
+    // Criação do gráfico de pizza
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+</script>

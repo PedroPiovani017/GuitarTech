@@ -1,0 +1,19 @@
+#myChart {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.grafico{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 500px;
+}
+
+.exibir{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-left: 200px;
+    margin-top: -400px;
+}

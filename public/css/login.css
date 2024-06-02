@@ -117,6 +117,13 @@
     to {
       transform: scale(1.8);
       opacity: 0;
-    }
-  
+    } 
+}
+
+.exibir{
+  font-weight: bold;
+  color: red;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: -40vh;
+  margin-left: 70vw;
 }
