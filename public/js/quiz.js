@@ -57,7 +57,7 @@ function finish() {
 
             if (resposta.ok) {
                 alert("Quiz finalizado!")
-                window.location = "dashboard.html"
+                
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
