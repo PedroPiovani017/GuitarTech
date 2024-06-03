@@ -131,7 +131,8 @@ fetch("/usuarios/cadastrar", {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-            alert("Login realizado!")
+            alert("Cadastro realizado!")
+            window.location = "login.html"
         } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
         }

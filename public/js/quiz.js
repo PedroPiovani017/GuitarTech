@@ -18,27 +18,56 @@ btnRestart.onclick = () => {
     loadQuestion();
 }
 
-function nextQuestion(e){
-    if(e.target.getAttribute("data-correct") === "true"){
+function nextQuestion(e) {
+    if (e.target.getAttribute("data-correct") === "true") {
         questionsCorrect++;
     }
 
-    if(currentIndex < questions.length - 1){
+    if (currentIndex < questions.length - 1) {
         currentIndex++;
         loadQuestion();
-    } else{
+    } else {
         finish();
     }
 }
 
-function finish(){
-    const button = document.querySelector('#reiniciar') 
+function finish() {
+    const button = document.querySelector('#reiniciar')
     button.style.display = "block"
     content.style.display = "none";
     contentFinish.style.display = "flex";
+    console.log(questionsCorrect);
+    console.log(sessionStorage.ID_USUARIO);
+
+    fetch("/medidas/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+           idUsuario: sessionStorage.ID_USUARIO,
+           questionsCorrect: questionsCorrect,
+           questionIncorrect: 10 - questionsCorrect
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                alert("Quiz finalizado!")
+                window.location = "dashboard.html"
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
 }
 
-function loadQuestion(){
+function loadQuestion() {
     spnQtd.innerHTML = `${currentIndex + 1}/${questions.length}`;
     const item = questions[currentIndex];
     answers.innerHTML = "";
